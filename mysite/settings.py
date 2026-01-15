@@ -27,6 +27,9 @@ if not SECRET_KEY:
 
 DEBUG = os.getenv("DEBUG", "False").lower() in ("1", "true", "yes", "y", "on")
 
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h.strip()]
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
