@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DastanTeams LLM</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">DT</div>
+      <div class="brand-text">
+        <div class="brand-title">DastanTeams <span>LLM</span></div>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button class="avatar" type="button" aria-label="Профиль">
+        <i class="fa-solid fa-user"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-container" id="layout">
+    <!-- Column 1 -->
+    <section class="panel panel--material" id="col1">
+      <div class="panel-header">
+        <i class="fas fa-book-open" style="color: var(--primary);"></i>
+        Материал
+      </div>
+
+      <div class="panel-body">
+        <textarea class="material-input" id="sourceText"
+          placeholder="Вставьте сюда текст лекции, статьи или заметки..."></textarea>
+      </div>
+
+      <div class="action-bar">
+      </div>
+    </section>
+
+    <div class="resizer" data-left="col1" data-right="col2" title="Тяни чтобы менять размер"></div>
+
+    <!-- Column 2 -->
+    <section class="panel panel--chat" id="col2">
+      <div class="panel-header">
+        <i class="fas fa-comments" style="color: var(--primary);"></i>
+        AI Помощник
+      </div>
+
+      <div class="panel-body">
+        <div class="chat-container" id="chatHistory">
+          <div class="message msg-ai demo-message">
+  Привет! Скинь материал слева, и я помогу тебе подготовиться.
+</div>
+<div class="message msg-user demo-message">
+  Хорошо, сейчас вставлю лекцию по истории.
+</div>
+
+        </div>
+
+        <div class="chat-input-area">
+          <input type="text" class="chat-input" id="chatInput" placeholder="Задай вопрос по теме...">
+          <button class="btn-icon" type="button" id="chatSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="resizer" data-left="col2" data-right="col3" title="Тяни чтобы менять размер"></div>
+
+    <!-- Column 3 -->
+    <section class="panel panel--result" id="col3">
+      <div class="panel-header">
+        <i class="fas fa-desktop" style="color: var(--primary);"></i>
+        Результат
+      </div>
+
+      <div class="panel-body" id="resultContainer">
+        <div class="hint">
+          Попросите что-нибудь в чате (например: "Сделай тест" или "Напиши эссе")...
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <form style="display:none">{% csrf_token %}</form>
+
+  <!-- твой основной js (если есть) -->
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- resize js -->
+  <script src="{% static 'js/resize.js' %}"></script>
+</body>
+</html>
