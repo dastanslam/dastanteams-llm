@@ -152,3 +152,10 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://llm.dastanteams.kz",
+    "https://www.llm.dastanteams.kz",
+    "https://dastanteams-llm.onrender.com",
+]
+
