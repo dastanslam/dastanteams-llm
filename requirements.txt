@@ -6,6 +6,7 @@ charset-normalizer==3.4.4
 colorama==0.4.6
 distro==1.9.0
 Django==6.0
+gunicorn
 google-ai-generativelanguage==0.6.15
 google-api-core==2.29.0
 google-api-python-client==2.187.0
